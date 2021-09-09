@@ -20,3 +20,6 @@ Route::get('/', function () {
 
 Route::get('/login/discord', [DiscordController::class, 'redirectToProvider'])->name('discord.login');
 Route::get('/login/discord/callback', [DiscordController::class, 'handleProviderCallback'])->name('discordLoginCallback');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
