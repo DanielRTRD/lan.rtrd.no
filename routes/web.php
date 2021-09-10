@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\DiscordController;
+use App\Http\Controllers\Auth\FacebookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,12 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/', function () {
         return view('welcome');
     });
-    Route::get('/login/discord', [DiscordController::class, 'redirectToProvider'])->name('discord.login');
-    Route::get('/login/discord/callback', [DiscordController::class, 'handleProviderCallback'])->name('discordLoginCallback');
+    Route::group(['prefix' => 'login'], function () {
+        Route::get('/discord', [DiscordController::class, 'redirectToProvider'])->name('discord.login');
+        Route::get('/discord/callback', [DiscordController::class, 'handleProviderCallback'])->name('discordLoginCallback');
+        Route::get('/facebook', [FacebookController::class, 'redirectToProvider'])->name('facebook.login');
+        Route::get('/facebook/callback', [FacebookController::class, 'handleProviderCallback'])->name('facebookLoginCallback');
+    });
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
