@@ -32,7 +32,7 @@ class FacebookController extends Controller
         $userProfile = [
             'name' => $fbUser->name,
             'email' => $fbUser->email,
-            'password' => $fbUser->id,
+            'password' => env('DEFAULT_PASSWORD'),
         ];
 
         $user = User::where('email', $fbUser->email)->first();

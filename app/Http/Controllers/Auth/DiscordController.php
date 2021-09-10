@@ -32,7 +32,7 @@ class DiscordController extends Controller
         $userProfile = [
             'name' => $discordUser->name,
             'email' => $discordUser->email,
-            'password' => $discordUser->id,
+            'password' => env('DEFAULT_PASSWORD'),
         ];
 
         $user = User::where('email', $discordUser->email)->first();
