@@ -18,14 +18,19 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/', function () {
         return view('welcome');
     });
-    Route::group(['prefix' => 'login'], function () {
-        Route::get('/discord', [DiscordController::class, 'redirectToProvider'])->name('discord.login');
-        Route::get('/discord/callback', [DiscordController::class, 'handleProviderCallback'])->name('discordLoginCallback');
-        Route::get('/facebook', [FacebookController::class, 'redirectToProvider'])->name('facebook.login');
-        Route::get('/facebook/callback', [FacebookController::class, 'handleProviderCallback'])->name('facebookLoginCallback');
-    });
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::group(['prefix' => 'login'], function () {
+    Route::get('/discord', [DiscordController::class, 'redirectToProvider'])->name('discord.login')->middleware('guest');
+    Route::get('/discord/callback', [DiscordController::class, 'handleProviderCallback']);
+    Route::get('/facebook', [FacebookController::class, 'redirectToProvider'])->name('facebook.login')->middleware('guest');
+    Route::get('/facebook/callback', [FacebookController::class, 'handleProviderCallback']);
+});
+
+Route::middleware(['auth:sanctum', 'verified', 'password.confirm'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('/login', function () {
+    return redirect()->to('/');
+})->name('login');
