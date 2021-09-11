@@ -9,6 +9,13 @@
 
     <x-slot name="form">
 
+        <!--
+            - Jeg kommer X og reiser X
+            - Jeg ønsker håndkle
+            - Jeg ønsker dyne, pute og sengetøy
+            - Jeg kan ta med luftmadrass/sammenleggbar gjesteseng
+        -->
+
         <div class="col-span-6">
             <x-jet-label for="name" value="{{ __('Name') }}" />
             <x-jet-input id="name" type="text" class="block w-full mt-1" wire:model.defer="state.name" autocomplete="name" />
