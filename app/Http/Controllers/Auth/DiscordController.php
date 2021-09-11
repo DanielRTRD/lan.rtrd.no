@@ -30,7 +30,7 @@ class DiscordController extends Controller
         $discordUser = Socialite::driver('discord')->user();
         //dd($discordUser);
         $userProfile = [
-            'name' => $discordUser->name,
+            'username' => $discordUser->name,
             'email' => $discordUser->email,
             'password' => env('DEFAULT_PASSWORD'),
         ];
