@@ -35,7 +35,12 @@
             </div>
             <div class="w-full px-1 my-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/2 xl:w-1/4">
                 <div class="p-8 py-4 overflow-hidden bg-white rounded shadow-lg md:shadow-xl sm:rounded-lg">
-                    <h1 class="py-2 text-2xl">Deltakere: 0</h1>
+                    <h1 class="py-2 text-2xl">{{ \App\Models\Attendance::count() .' '. trans_choice('{1} deltaker|[2,*] deltakere', \App\Models\Attendance::count()) }}</h1>
+                    <ul class="ml-2 list-disc list-inside">
+                        @foreach (\App\Models\Attendance::all() as $attendance)
+                            <li>{{ $attendance->user->name ?? $attendance->user->username }}</li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
