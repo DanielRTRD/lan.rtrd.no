@@ -30,7 +30,7 @@
             </div>
             <div class="w-full px-1 my-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/2">
                 <div class="p-8 py-4 overflow-hidden bg-white rounded shadow-lg md:shadow-xl sm:rounded-lg">
-                    @livewire('attendance')
+                    @livewire('attendance-form')
                 </div>
             </div>
             <div class="w-full px-1 my-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/2 xl:w-1/4">
