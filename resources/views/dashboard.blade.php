@@ -11,8 +11,10 @@
                 <div class="p-8 py-4 overflow-hidden bg-white rounded shadow-lg md:shadow-xl sm:rounded-lg">
                     <h1 class="py-2 text-2xl">Når? <span class="text-purple-500">{{ \Carbon\Carbon::parse(env('LAN_START_DATE'))->toFormattedDateString() }} &mdash; {{ \Carbon\Carbon::parse(env('LAN_END_DATE'))->toFormattedDateString() }}</span></h1>
                     <h1 class="py-2 text-2xl">Hvor? <span class="text-purple-500">Hjemme hos Daniel og Hanne<sup>&dagger;</sup></span></h1>
-                    <h1 class="py-2 text-2xl">Annen info:</h1>
-                    <p>Soveplasser:</p>
+                    <h1 class="py-2 text-2xl">Info:</h1>
+                    <p class="my-1">Vi arranger enda et lite LAN i koronapandemien for å samle venner og bekjente siden det blir lite av det sånn ellers. I fysisk form altså, vi møtes jo til vanlig på Discord. Vi håper at så mange som mulig kan komme, men det er begrenset til hvor mange vi har plass til i stuen.</p>
+                    <p class="my-1">Vi stiller selvfølgelig med stoler (egen stol anbefales), bord og internett. Ta med PC og/eller konsoll også koser vi oss! Vi har to katter, så om du er allergisk så er det nok lurt å ta med noen piller for det. Viktig at alle sammen passer på å vaske hendene og slikt for å minske smittefaren, selom noen har fått vaksine(r)!</p>
+                    <p class="mt-2">Soveplasser:</p>
                     <ul class="ml-2 list-disc list-inside">
                         <li>Kjellerstue: <span class="text-purple-500">Dobbelseng, sammenleggbar gjesteseng og luftmadrass</span></li>
                         <li>Gjesterom: <span class="text-purple-500">Dobbelseng</span></li>
