@@ -34,7 +34,16 @@
             </div>
             <div class="w-full px-1 my-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/2">
                 <div class="p-8 py-4 overflow-hidden bg-white rounded shadow-lg md:shadow-xl sm:rounded-lg">
-                    @livewire('attendance-form')
+                    @if(!auth()->user()->name)
+                        <p class="font-bold">Vennligst legg til navnet ditt på <a href="{{ route('profile.show') }}" class="underline">profilen din</a>! 😇</p>
+                        <div class="px-4 py-3 my-3 leading-normal text-blue-700 bg-blue-100 rounded-lg" role="alert">
+                            <p><svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>{{ __('Vi trenger dette i tilfelle smitte under arrangementet. All informasjon som blir sendt inn her holdes privat og deles ikke videre. All data på denne nettsiden blir slettet innen 30 dager etter arrangementet.') }}</p>
+                        </div>
+                    @else
+                        @livewire('attendance-form')
+                    @endif
                 </div>
             </div>
             <div class="w-full px-1 my-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/2 xl:w-1/4">
