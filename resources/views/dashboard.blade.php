@@ -30,7 +30,14 @@
             </div>
             <div class="w-full px-1 my-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/2">
                 <div class="p-8 py-4 overflow-hidden bg-white rounded shadow-lg md:shadow-xl sm:rounded-lg">
-                    @livewire('attendance-form')
+                    @if (auth()->user()->attendance())
+                        <div class="px-4 py-3 my-2 leading-normal text-green-700 bg-green-100 rounded-lg" role="alert">
+                            <p class="font-bold">Din deltakelse er registrert!</p>
+                            <p>Vi gleder oss til å se deg i oktober!</p>
+                        </div>
+                    @else
+                        @livewire('attendance-form')
+                    @endif
                 </div>
             </div>
             <div class="w-full px-1 my-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/2 xl:w-1/4">
