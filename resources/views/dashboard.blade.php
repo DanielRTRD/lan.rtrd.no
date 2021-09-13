@@ -12,8 +12,12 @@
                     <h1 class="py-2 text-2xl">Når? <span class="text-purple-500">{{ \Carbon\Carbon::parse(env('LAN_START_DATE'))->toFormattedDateString() }} &mdash; {{ \Carbon\Carbon::parse(env('LAN_END_DATE'))->toFormattedDateString() }}</span></h1>
                     <h1 class="py-2 text-2xl">Hvor? <span class="text-purple-500">Hjemme hos Daniel og Hanne<sup>&dagger;</sup></span></h1>
                     <h1 class="py-2 text-2xl">Info:</h1>
-                    <p class="my-1">Vi arranger enda et lite LAN i koronapandemien for å samle venner og bekjente siden det blir lite av det sånn ellers. I fysisk form altså, vi møtes jo til vanlig på Discord. Vi håper at så mange som mulig kan komme, men det er begrenset til hvor mange vi har plass til i stuen.</p>
-                    <p class="my-1">Vi stiller selvfølgelig med stoler (egen stol anbefales), bord og internett. Ta med PC og/eller konsoll også koser vi oss! Vi har to katter, så om du er allergisk så er det nok lurt å ta med noen piller for det. Viktig at alle sammen passer på å vaske hendene og slikt for å minske smittefaren, selvom noen har fått vaksine(r)! Sengene blir prioritert til de som skal være her over lengre tid, håper det er forståelig.</p>
+                    <p class="my-1">Vi arranger enda et lite LAN i koronapandemien for å samle venner og bekjente siden det blir lite av det sånn ellers. I fysisk form altså, vi møtes jo til vanlig på Discord. 🥰</p>
+                    <p class="my-1">Denne gangen så holder vi det over en uke i stedet for en lang helg. Vi håper at så mange som mulig kan komme, men det er begrenset til hvor mange vi har plass til i stua. 🤩</p>
+                    <p class="my-1">Vi stiller selvfølgelig med klappstoler, bord og internett. Vi har to-tre kontorstoler som kan lånes. Ta med PC og/eller konsoll også koser vi oss! 🎮</p>
+                    <p class="my-1">Vi har to katter, så om du er allergisk så er det nok lurt å ta med noen piller for det. 🐱</p>
+                    <p class="my-1">Smittevern: Viktig at alle sammen passer på å vaske hendene og slikt for å minske smittefaren, selvom noen har fått vaksine(r)! 🧼</p>
+                    <p class="my-1">Sengene blir prioritert til de som skal være her over lengre tid, håper det er forståelig. 😴</p>
                     <p class="mt-2">Soveplasser:</p>
                     <ul class="ml-2 list-disc list-inside">
                         <li>Kjellerstue: <span class="text-purple-500">Dobbelseng, sammenleggbar gjesteseng og luftmadrass</span></li>
