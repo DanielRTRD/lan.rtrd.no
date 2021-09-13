@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Carbon\Carbon;
 use Livewire\Component;
 use App\Models\Attendance;
 
@@ -68,6 +69,52 @@ class AttendanceForm extends Component
                 'vaccine' => $this->vaccine,
                 'comment' => $this->comment,
             ]);
+            /*
+            *
+            * DISCORD WEBHOOK
+            *
+            */
+            if (env('DISCORD_ATTENDANCE_WEBHOOK_URL')) {
+                $webhookurl = env('DISCORD_ATTENDANCE_WEBHOOK_URL');
+                $json_data = json_encode([
+                    "content" => ($attendance->user->name ? $attendance->user->name : $attendance->user->username)." vil fortsatt være med på LAN-party, men gjorde noen endringer!", // Message
+                    "tts" => false, // Enable text-to-speech
+                    // Embeds Array
+                    "embeds" => [
+                        [
+                            "title" => $attendance->user->username, // Embed Title
+                            "type" => "rich", // Embed Type
+                            "description" => "Fra ".$attendance->from_date." til ".$attendance->to_date, // Embed Description
+                            "url" => route('dashboard'), // URL of title link
+                            "timestamp" => Carbon::now()->toIso8601String(), // Timestamp of embed must be formatted as ISO8601
+                            "color" => hexdec("FFA500"), // Embed left border color in HEX
+                            // Footer
+                            "footer" => [
+                                "text" => $attendance->user->username, // Username
+                            ],
+                            // Author
+                            "author" => [
+                                "name" => 'Jeg vil fortsatt være med!',
+                            ],
+                        ]
+                    ]
+                
+                ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
+                $ch = curl_init( $webhookurl );
+                curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
+                curl_setopt( $ch, CURLOPT_POST, 1);
+                curl_setopt( $ch, CURLOPT_POSTFIELDS, $json_data);
+                curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+                curl_setopt( $ch, CURLOPT_HEADER, 0);
+                curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+                $response = curl_exec( $ch );
+                curl_close( $ch );
+            }
+            /*
+            *
+            * END DISCORD WEBHOOK
+            *
+            */
             $this->emit('saved');
         } else {
             $attendance = Attendance::create([
@@ -81,6 +128,52 @@ class AttendanceForm extends Component
                 'vaccine' => $this->vaccine,
                 'comment' => $this->comment,
             ]);
+            /*
+            *
+            * DISCORD WEBHOOK
+            *
+            */
+            if (env('DISCORD_ATTENDANCE_WEBHOOK_URL')) {
+                $webhookurl = env('DISCORD_ATTENDANCE_WEBHOOK_URL');
+                $json_data = json_encode([
+                    "content" => ($attendance->user->name ? $attendance->user->name : $attendance->user->username)." vil være med på LAN-party!", // Message
+                    "tts" => false, // Enable text-to-speech
+                    // Embeds Array
+                    "embeds" => [
+                        [
+                            "title" => $attendance->user->username, // Embed Title
+                            "type" => "rich", // Embed Type
+                            "description" => "Fra ".$attendance->from_date." til ".$attendance->to_date, // Embed Description
+                            "url" => route('dashboard'), // URL of title link
+                            "timestamp" => Carbon::now()->toIso8601String(), // Timestamp of embed must be formatted as ISO8601
+                            "color" => hexdec("198754"), // Embed left border color in HEX
+                            // Footer
+                            "footer" => [
+                                "text" => $attendance->user->username, // Username
+                            ],
+                            // Author
+                            "author" => [
+                                "name" => 'Jeg vil være med!',
+                            ],
+                        ]
+                    ]
+                
+                ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
+                $ch = curl_init( $webhookurl );
+                curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
+                curl_setopt( $ch, CURLOPT_POST, 1);
+                curl_setopt( $ch, CURLOPT_POSTFIELDS, $json_data);
+                curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+                curl_setopt( $ch, CURLOPT_HEADER, 0);
+                curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+                $response = curl_exec( $ch );
+                curl_close( $ch );
+            }
+            /*
+            *
+            * END DISCORD WEBHOOK
+            *
+            */
             $this->emit('attendanceListUpdate');
             //return redirect()->route('dashboard'); // FFS - Fix this or not?
         }
@@ -99,7 +192,54 @@ class AttendanceForm extends Component
     }
 
     public function delete() {
-        auth()->user()->attendance->delete();
+        $attendance = auth()->user()->attendance;
+        /*
+        *
+        * DISCORD WEBHOOK
+        *
+        */
+        if (env('DISCORD_ATTENDANCE_WEBHOOK_URL')) {
+            $webhookurl = env('DISCORD_ATTENDANCE_WEBHOOK_URL');
+            $json_data = json_encode([
+                "content" => ($attendance->user->name ? $attendance->user->name : $attendance->user->username)." kan ikke være med på LAN-party likevel!", // Message
+                "tts" => false, // Enable text-to-speech
+                // Embeds Array
+                "embeds" => [
+                        [
+                            "title" => $attendance->user->username, // Embed Title
+                            "type" => "rich", // Embed Type
+                            "description" => "Jeg måtte dessverre kansellere deltakelsen min.", // Embed Description
+                            "url" => route('dashboard'), // URL of title link
+                            "timestamp" => Carbon::now()->toIso8601String(), // Timestamp of embed must be formatted as ISO8601
+                            "color" => hexdec("ff0000"), // Embed left border color in HEX
+                            // Footer
+                            "footer" => [
+                                "text" => $attendance->user->username, // Username
+                            ],
+                            // Author
+                            "author" => [
+                                "name" => 'Jeg kan ikke være med!',
+                            ],
+                        ]
+                    ]
+                    
+            ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
+            $ch = curl_init( $webhookurl );
+            curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
+            curl_setopt( $ch, CURLOPT_POST, 1);
+            curl_setopt( $ch, CURLOPT_POSTFIELDS, $json_data);
+            curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+            curl_setopt( $ch, CURLOPT_HEADER, 0);
+            curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+            $response = curl_exec( $ch );
+            curl_close( $ch );
+        }
+        /*
+        *
+        * END DISCORD WEBHOOK
+        *
+        */
+        $attendance->delete();
         $this->from_date = null;
         $this->to_date = null;
         $this->towel = false;
@@ -112,7 +252,7 @@ class AttendanceForm extends Component
         $this->noAttendance = false;
         $this->emit('attendanceListUpdate');
     }
-
+    
     public function render()
     {
         return view('livewire.attendance-form');
