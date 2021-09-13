@@ -15,13 +15,6 @@
 
         <x-slot name="form">
 
-            <!--
-                - Jeg kommer X og reiser X
-                - Jeg ønsker håndkle
-                - Jeg ønsker dyne, pute og sengetøy
-                - Jeg kan ta med luftmadrass/sammenleggbar gjesteseng
-            -->
-
             <div class="col-span-6">
                 <x-jet-label for="from_date" value="{{ __('Ankomst') }}" />
                 <x-jet-input id="from_date" type="date" class="block w-full mt-1" wire:model.defer="from_date" min="{{ \Carbon\Carbon::parse(env('LAN_START_DATE'))->toDateString() }}" max="{{ \Carbon\Carbon::parse(env('LAN_END_DATE'))->toDateString() }}" />
