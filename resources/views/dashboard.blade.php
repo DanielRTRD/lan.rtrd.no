@@ -42,7 +42,7 @@
                     <h1 class="py-2 text-2xl">{{ \App\Models\Attendance::count() .' '. trans_choice('{1} deltaker|[2,*] deltakere', \App\Models\Attendance::count()) }}</h1>
                     <ul class="ml-2 list-disc list-inside">
                         @foreach (\App\Models\Attendance::all() as $attendance)
-                            <li>{{ $attendance->user->name ?? $attendance->user->username }}</li>
+                            <li>{{ $attendance->user->username }}</li>
                         @endforeach
                     </ul>
                 </div>
