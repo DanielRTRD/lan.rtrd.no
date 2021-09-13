@@ -30,6 +30,7 @@ class FacebookController extends Controller
     {
         $fbUser = Socialite::driver('facebook')->user();
         $userProfile = [
+            'name' => $fbUser->name,
             'username' => $fbUser->name,
             'email' => $fbUser->email,
             'password' => env('DEFAULT_PASSWORD'),
