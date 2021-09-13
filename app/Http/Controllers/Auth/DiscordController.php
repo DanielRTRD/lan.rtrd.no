@@ -28,7 +28,6 @@ class DiscordController extends Controller
     public function handleProviderCallback()
     {
         $discordUser = Socialite::driver('discord')->user();
-        //dd($discordUser);
         $userProfile = [
             'username' => $discordUser->name,
             'email' => $discordUser->email,
