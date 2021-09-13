@@ -15,7 +15,7 @@
                     <p class="my-2">Vi arranger enda et lite LAN i koronapandemien for å samle venner og bekjente siden det blir lite av det sånn ellers. I fysisk form altså, vi møtes jo til vanlig på Discord. 🥰</p>
                     <p class="my-2">Denne gangen så holder vi det over en uke i stedet for en lang helg. Vi håper at så mange som mulig kan komme, men det er begrenset til hvor mange vi har plass til i stua. 🤩</p>
                     <p class="my-2">Vi stiller selvfølgelig med klappstoler, bord og internett. Vi har to-tre kontorstoler som kan lånes. Ta med PC og/eller konsoll også koser vi oss! 🎮</p>
-                    <p class="my-2">Vi har to katter, så om du er allergisk så er det nok lurt å ta med noen piller for det. 🐱</p>
+                    <p class="my-2">Vi har to katter, så om du er allergisk så er det nok lurt å ta med noen piller for det. Odin er glad i å spise myk plast (som feks plastposer) så prøv å ungå å ha med for mye av det, eventuelt gjem de i bag, sekk eller lignende! 😺</p>
                     <p class="my-2">Smittevern: Viktig at alle sammen passer på å vaske hendene og slikt for å minske smittefaren, selvom noen har fått vaksine(r)! 🧼</p>
                     <p class="my-2">Sengene blir prioritert til de som skal være her over lengre tid, håper det er forståelig. 😴</p>
                     <p class="mt-2">Soveplasser:</p>
@@ -40,6 +40,22 @@
             <div class="w-full px-1 my-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/2 xl:w-1/4">
                 <div class="p-8 py-4 overflow-hidden bg-white rounded shadow-lg md:shadow-xl sm:rounded-lg">
                     @livewire('attendance-list')
+                </div>
+            </div>
+            <div class="w-full px-1 my-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/2 xl:w-1/3">
+                <div class="p-8 py-4 overflow-hidden bg-white rounded shadow-lg md:shadow-xl sm:rounded-lg">
+                    <ul class="ml-2 list-disc list-inside">
+                        <h1 class="py-2 text-2xl">Huskeliste:</h1>
+                        <li>Toalettsaker (tannbørste, tannkrem, deo osv)</li>
+                        <li>Klær for de dagene du skal være her (vaskemaskin kan lånes)</li>
+                        <li>Nettverkskabel (2-5 meter)</li>
+                        <li>Strømforgrener (3-5 stikk)</li>
+                        <li>Headset og mikrofon</li>
+                        <li>Tastatur, mus og musematte for de med PC</li>
+                        <li>Andre essensielle kabler til PC/Konsoll som feks strømkabel (Hint hint @ Tomas)</li>
+                        <li>En skjerm som er innen for en grei størrelse (Hint hint @ Fredrik)</li>
+                        <li>Gamingstol eller annen type kontor stol (vi har noen stoler)</li>
+                    </ul>
                 </div>
             </div>
         </div>
