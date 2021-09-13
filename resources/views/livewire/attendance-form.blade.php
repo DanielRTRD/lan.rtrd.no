@@ -61,7 +61,7 @@
 
             <div class="col-span-6">
                 <x-jet-label for="comment" value="{{ __('Andre kommentarer til Daniel eller Hanne? Vi kan legge til rette for deg om du har spesielle behov') }}" />
-                <x-jet-input id="comment" type="text" class="block w-full mt-1" wire:model.defer="comment" />
+                <textarea id="comment" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" wire:model.defer="comment"></textarea>
                 <x-jet-input-error for="comment" class="mt-2" />
             </div>
 
