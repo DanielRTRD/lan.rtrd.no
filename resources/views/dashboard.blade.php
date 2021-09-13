@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="container px-4 mx-auto my-12 md:px-12">
+    <div class="container px-4 pb-12 mx-auto mt-12 md:px-12">
         <div class="flex flex-wrap -mx-1 lg:-mx-4">
             <div class="w-full px-1 my-1 md:w-full lg:my-4 lg:px-4 lg:w-1/2">
                 <div class="p-8 py-4 overflow-hidden bg-white rounded shadow-lg md:shadow-xl sm:rounded-lg">
