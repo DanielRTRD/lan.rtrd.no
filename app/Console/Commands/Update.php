@@ -53,7 +53,7 @@ class Update extends Command
             Setting::save();
         }
         $this->info('Seeding permissions...');
-        Artisan::call('db:seed --class=PermissionSeeder');
+        Artisan::call('db:seed --class=PermissionSeeder --force');
         $this->info('Running storage:link command...');
         Artisan::call('storage:link');
         $this->info('Done.');
