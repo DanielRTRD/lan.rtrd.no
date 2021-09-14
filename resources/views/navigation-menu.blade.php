@@ -69,6 +69,48 @@
                     </div>
                 @endif
 
+                @role('super-admin|admin')
+                    <div class="relative ml-3">
+                        <x-jet-dropdown align="right" width="60">
+                            <x-slot name="trigger">
+                                <span class="inline-flex rounded-md">
+                                    <button type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition bg-white border border-transparent rounded-md hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
+                                        {{ __('Admin') }}
+                                    </button>
+                                </span>
+                            </x-slot>
+
+                            <x-slot name="content">
+                                <div class="w-60">
+                                    <div class="block px-4 py-2 text-xs text-gray-400">
+                                        {{ __('LAN-Party') }}
+                                    </div>
+                                    <x-jet-dropdown-link href="#">
+                                        {{ __('Attendances') }}
+                                    </x-jet-dropdown-link>
+                                    <div class="block px-4 py-2 text-xs text-gray-400">
+                                        {{ __('User Management') }}
+                                    </div>
+                                    <x-jet-dropdown-link href="{{ route('users.index') }}">
+                                        {{ __('Users') }}
+                                    </x-jet-dropdown-link>
+                                    <x-jet-dropdown-link href="{{ route('roles.index') }}">
+                                        {{ __('Roles') }}
+                                    </x-jet-dropdown-link>
+                                    @role('super-admin') 
+                                        <x-jet-dropdown-link href="{{ route('permissions.index') }}">
+                                            {{ __('Permissions') }}
+                                        </x-jet-dropdown-link>
+                                    @endrole
+                                </div>
+                            </x-slot>
+                        </x-jet-dropdown>
+                    </div>
+                @endrole
+
                 <!-- Settings Dropdown -->
                 <div class="relative ml-3">
                     <x-jet-dropdown align="right" width="48">
@@ -142,6 +184,42 @@
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
         </div>
+
+        <!-- Mobile admin menu -->
+        @role('super-admin|admin')
+            <div class="pt-4 pb-1 border-t border-gray-200">
+                <div class="flex items-center px-4">
+                    <div class="text-base font-medium text-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        {{ __('Admin') }}
+                    </div>
+                </div>
+                <div class="mt-3 space-y-1">
+                    <div class="block px-4 py-2 text-xs text-gray-400">
+                        {{ __('LAN-Party') }}
+                    </div>
+                    <x-jet-responsive-nav-link href="#">
+                        {{ __('Attendances') }}
+                    </x-jet-responsive-nav-link>
+                    <div class="block px-4 py-2 text-xs text-gray-400">
+                        {{ __('User Management') }}
+                    </div>
+                    <x-jet-responsive-nav-link href="{{ route('users.index') }}">
+                        {{ __('Users') }}
+                    </x-jet-responsive-nav-link>
+                    <x-jet-responsive-nav-link href="{{ route('roles.index') }}">
+                        {{ __('Roles') }}
+                    </x-jet-responsive-nav-link>
+                    @role('super-admin') 
+                        <x-jet-responsive-nav-link href="{{ route('permissions.index') }}">
+                            {{ __('Permissions') }}
+                        </x-jet-responsive-nav-link>
+                    @endrole
+                </div>
+            </div>
+        @endrole
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
