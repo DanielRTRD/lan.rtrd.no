@@ -23,7 +23,7 @@ class PermissionSeeder extends Seeder
 
         $r1->givePermissionTo($p1->name);
 
-        $user = User::find(1);
+        $user = User::find(1)->first();
         if($user) {
             $user->assignRole($r1);
         }
