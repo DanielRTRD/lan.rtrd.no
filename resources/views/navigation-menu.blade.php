@@ -88,7 +88,7 @@
                                     <div class="block px-4 py-2 text-xs text-gray-400">
                                         {{ __('LAN-Party') }}
                                     </div>
-                                    <x-jet-dropdown-link href="#">
+                                    <x-jet-dropdown-link href="{{ route('attendance.index') }}">
                                         {{ __('Attendances') }}
                                     </x-jet-dropdown-link>
                                     <div class="block px-4 py-2 text-xs text-gray-400">
@@ -200,7 +200,7 @@
                     <div class="block px-4 py-2 text-xs text-gray-400">
                         {{ __('LAN-Party') }}
                     </div>
-                    <x-jet-responsive-nav-link href="#">
+                    <x-jet-responsive-nav-link href="{{ route('attendance.index') }}">
                         {{ __('Attendances') }}
                     </x-jet-responsive-nav-link>
                     <div class="block px-4 py-2 text-xs text-gray-400">
