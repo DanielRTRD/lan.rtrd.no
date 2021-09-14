@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\Auth\DiscordController;
 use App\Http\Controllers\Auth\FacebookController;
 
@@ -27,9 +30,20 @@ Route::group(['prefix' => 'login'], function () {
     Route::get('/facebook/callback', [FacebookController::class, 'handleProviderCallback']);
 });
 
-Route::middleware(['auth:sanctum', 'verified', 'password.confirm'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
+Route::group(['middleware' => ['auth:sanctum', 'verified', 'password.confirm']], function () {
+    
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::group(['middleware' => ['role:super-admin|admin']], function () {
+        Route::resource('users', UserController::class);
+        Route::resource('roles', RoleController::class);
+        Route::resource('permissions', PermissionController::class);
+    });
+
+});
 
 Route::get('/login', function () {
     return redirect()->to('/');
