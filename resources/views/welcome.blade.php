@@ -17,6 +17,7 @@
                         </path>
                     </svg> Login with Facebook
                 </a>
+                <p class="mt-4 text-gray-400">Noen opplever problemer med Facebook-innlogging, hvis du opplever det;<br>Bruk Discord-innloggingen!</p>
             </div>
         </div>
     </div>
