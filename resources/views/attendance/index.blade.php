@@ -11,14 +11,14 @@
                 <div class="w-full px-1 my-1 lg:my-4 lg:px-4 md:w-1/2 xl:w-1/3">
                     <div class="p-8 py-4 overflow-hidden text-gray-200 bg-gray-800 rounded shadow-lg md:shadow-xl sm:rounded-lg">
                         <p class="mb-2 text-2xl font-semibold">{{ $attendance->user->name }} <span class="text-xl text-gray-500">{{ $attendance->user->username }}</span></p>
-                        <p class="pt-1">{{ __('Ankomst') }}: <span class="text-blue-400">{{ \Carbon\Carbon::parse($attendance->from_date)->toFormattedDateString() }}</span></p>
-                        <p class="pt-1">{{ __('Avreise') }}: <span class="text-blue-400">{{ \Carbon\Carbon::parse($attendance->to_date)->toFormattedDateString() }}</span></p>
-                        <p class="pt-1">{{ __('Jeg trenger dusjhåndkle') }}: <span class="text-blue-400">{{ $attendance->towel ? 'Ja' : 'Nei' }}</span></p>
-                        <p class="pt-1">{{ __('Jeg trenger dyne og pute') }}: <span class="text-blue-400">{{ $attendance->pillow_douvet ? 'Ja' : 'Nei' }}</span></p>
-                        <p class="pt-1">{{ __('Jeg trenger dynetrekk/putetrekk') }}: <span class="text-blue-400">{{ $attendance->pillow_douvet_cover ? 'Ja' : 'Nei' }}</span></p>
-                        <p class="pt-1">{{ __('Jeg kan ta med luftmadrass/sammenleggbar gjesteseng ved behov') }}: <span class="text-blue-400">{{ $attendance->bringing_bed ? 'Ja' : 'Nei' }}</span></p>
+                        <p class="pt-1">{{ __('Ankomst') }}: <span class="text-green-400">{{ \Carbon\Carbon::parse($attendance->from_date)->toFormattedDateString() }}</span></p>
+                        <p class="pt-1">{{ __('Avreise') }}: <span class="text-green-400">{{ \Carbon\Carbon::parse($attendance->to_date)->toFormattedDateString() }}</span></p>
+                        <p class="pt-1">{{ __('Jeg trenger dusjhåndkle') }}: <span class="text-green-400">{{ $attendance->towel ? 'Ja' : 'Nei' }}</span></p>
+                        <p class="pt-1">{{ __('Jeg trenger dyne og pute') }}: <span class="text-green-400">{{ $attendance->pillow_douvet ? 'Ja' : 'Nei' }}</span></p>
+                        <p class="pt-1">{{ __('Jeg trenger dynetrekk/putetrekk') }}: <span class="text-green-400">{{ $attendance->pillow_douvet_cover ? 'Ja' : 'Nei' }}</span></p>
+                        <p class="pt-1">{{ __('Jeg kan ta med luftmadrass/sammenleggbar gjesteseng ved behov') }}: <span class="text-green-400">{{ $attendance->bringing_bed ? 'Ja' : 'Nei' }}</span></p>
                         <p class="pt-1">{{ __('Vaksinert?') }}
-                            <span class="text-blue-400">
+                            <span class="text-green-400">
                                 @if ($attendance->vaccine == 8)
                                     {{ __('Ingen vaksine') }}
                                 @elseif ($attendance->vaccine == 1)
@@ -30,7 +30,7 @@
                                 @endif
                             </span>
                         </p>
-                        <p class="pt-1">{{ __('Andre kommentarer') }}:<br><span class="text-blue-400">{{ $attendance->comment }}</span></p>
+                        <p class="pt-1">{{ __('Andre kommentarer') }}:<br><span class="text-green-400">{{ $attendance->comment }}</span></p>
                     </div>
                 </div>
             @endforeach
