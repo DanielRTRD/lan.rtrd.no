@@ -50,7 +50,7 @@
                 <div class="col-span-6">
                     <label for="towel" class="flex items-center">
                         <x-jet-checkbox id="towel" class="" wire:model.defer="towel" />
-                        <span class="ml-2 text-sm text-gray-600">{{ __('Jeg trenger dusjhåndkle') }}</span>
+                        <span class="ml-2 text-sm text-gray-300">{{ __('Jeg trenger dusjhåndkle') }}</span>
                     </label>
                     <x-jet-input-error for="towel" class="mt-2" />
                 </div>
@@ -58,7 +58,7 @@
                 <div class="col-span-6">
                     <label for="pillow_douvet" class="flex items-center">
                         <x-jet-checkbox id="pillow_douvet" class="" wire:model.defer="pillow_douvet" />
-                        <span class="ml-2 text-sm text-gray-600">{{ __('Jeg trenger dyne og pute') }}</span>
+                        <span class="ml-2 text-sm text-gray-300">{{ __('Jeg trenger dyne og pute') }}</span>
                     </label>
                     <x-jet-input-error for="pillow_douvet" class="mt-2" />
                 </div>
@@ -66,7 +66,7 @@
                 <div class="col-span-6">
                     <label for="pillow_douvet_cover" class="flex items-center">
                         <x-jet-checkbox id="pillow_douvet_cover" class="" wire:model.defer="pillow_douvet_cover" />
-                        <span class="ml-2 text-sm text-gray-600">{{ __('Jeg trenger dynetrekk/putetrekk') }}</span>
+                        <span class="ml-2 text-sm text-gray-300">{{ __('Jeg trenger dynetrekk/putetrekk') }}</span>
                     </label>
                     <x-jet-input-error for="pillow_douvet_cover" class="mt-2" />
                 </div>
@@ -74,27 +74,27 @@
                 <div class="col-span-6">
                     <label for="bringing_bed" class="flex items-center">
                         <x-jet-checkbox id="bringing_bed" class="" wire:model.defer="bringing_bed" />
-                        <span class="ml-2 text-sm text-gray-600">{{ __('Jeg kan ta med luftmadrass/sammenleggbar gjesteseng ved behov') }}</span>
+                        <span class="ml-2 text-sm text-gray-300">{{ __('Jeg kan ta med luftmadrass/sammenleggbar gjesteseng ved behov') }}</span>
                     </label>
                     <x-jet-input-error for="bringing_bed" class="mt-2" />
                 </div>
                 
                 <div class="col-span-6">
                     <x-jet-label for="vaccine" value="{{ __('Vaksinert?') }}" />
-                    <select id="vaccine" name="vaccine" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" wire:model.defer="vaccine">
+                    <select id="vaccine" name="vaccine" class="block w-full mt-1 text-gray-200 bg-black border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" wire:model.defer="vaccine">
                         <option value="">{{ __('--- Velg ---') }}</option>
                         <option value="8" {{ $vaccine == '8' ? 'selected' : '' }}>{{ __('Ingen vaksine') }}</option>
                         <option value="1" {{ $vaccine == '1' ? 'selected' : '' }}>{{ __('Første dose og det har gått tre til femten uker') }}</option>
                         <option value="2" {{ $vaccine == '2' ? 'selected' : '' }}>{{ __('Andre dose og det har gått én uke etter andre dose') }}</option>
                         <option value="9" {{ $vaccine == '9' ? 'selected' : '' }}>{{ __('Har hatt covid-19-sykdom de siste seks månedene') }}</option>
                     </select>
-                    <p class="text-xs text-gray-500">{{ __('Merk! Dette gjelder til arrangementet, og ikke på tidspunktet du sender inn info.') }}</p>
+                    <p class="text-xs text-yellow-600">{{ __('Merk! Dette gjelder til arrangementet, og ikke på tidspunktet du sender inn info.') }}</p>
                     <x-jet-input-error for="vaccine" class="mt-2" />
                 </div>
 
                 <div class="col-span-6">
                     <x-jet-label for="comment" value="{{ __('Andre kommentarer til Daniel og Hanne? Vi kan legge til rette for deg om du har spesielle behov.') }}" />
-                    <textarea id="comment" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" wire:model.defer="comment"></textarea>
+                    <textarea id="comment" class="block w-full mt-1 text-gray-200 bg-black border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" wire:model.defer="comment"></textarea>
                     <x-jet-input-error for="comment" class="mt-2" />
                 </div>
 
