@@ -21,11 +21,11 @@
                     <p class="my-2">Sengene blir prioritert til de som skal være her over lengre tid, håper det er forståelig. 😴</p>
                     <p class="mt-2">Soveplasser:</p>
                     <ul class="ml-2 list-disc list-inside">
-                        <li>Kjellerstue: <span class="text-green-400">Dobbelseng, sammenleggbar gjesteseng og luftmadrass</span></li>
+                        <li>Kjellerstue: <span class="text-green-400">To dobbelsenger og en sammenleggbar gjesteseng</span></li>
                         <li>Gjesterom: <span class="text-green-400">Dobbelseng</span></li>
-                        <li>Kjellerrom: <span class="text-green-400">Sammenleggbar gjesteseng</span></li>
+                        <li>Kjellerrom: <span class="text-green-400">Sammenleggbar gjesteseng eller luftmadrass</span></li>
                         <li>Kontor: <span class="text-green-400">Plass til luftmadrass/sammenleggbar gjesteseng<sup>&dagger;&dagger;</sup></span></li>
-                        <li>Åpen loftstue: <span class="text-green-400">Plass til flere luftmadrasser/sammenleggbar gjestesenger<sup>&dagger;&dagger;</sup></span></li>
+                        <li>Åpen loftstue: <span class="text-green-400">Sovesofa og plass til flere luftmadrasser/sammenleggbar gjestesenger<sup>&dagger;&dagger;</sup></span></li>
                     </ul>
                     <div class="mt-6">
                         <p class="text-xs text-gray-500"><sup>&dagger;</sup> Send oss en PM for adresse</p>
