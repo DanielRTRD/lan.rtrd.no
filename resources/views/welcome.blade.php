@@ -6,7 +6,7 @@
             </div>
 
             @if(Session::get('error'))
-                <div class="relative px-4 py-3 leading-normal text-red-700 bg-red-100 rounded-lg">
+                <div class="relative px-4 py-3 leading-normal text-red-100 bg-red-800 border border-red-400 rounded-lg">
                     <p>{{ Session::get('error') }}</p>
                 </div>
             @endif
