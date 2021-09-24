@@ -1,7 +1,7 @@
 <div>
     @if ($this->order)
         <h1 class="mb-4 text-2xl text-green-200">{{ __('Din Ordre') }}</h1>
-        {{ $this->order }}
+        Ordre ID: {{ $this->order->id }}
     @else
         <h1 class="mb-4 text-2xl text-green-200">Meny</h1>
         <div class="px-4 py-3 my-2 text-sm leading-normal text-blue-700 bg-blue-100 rounded" role="alert">
