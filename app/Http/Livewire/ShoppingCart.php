@@ -8,9 +8,10 @@ use Darryldecode\Cart\Facades\CartFacade as Cart;
 class ShoppingCart extends Component
 {
     protected $listeners = [
-        '$refresh'
+        'orderAdded' => '$refresh',
+        'foodAdded' => '$refresh',
     ];
-    
+
     public function boot() {
         $this->cart = Cart::getContent();
         $this->total = Cart::getTotal();

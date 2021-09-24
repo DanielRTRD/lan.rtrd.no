@@ -8,7 +8,11 @@ use Darryldecode\Cart\Facades\CartFacade as Cart;
 
 class FoodList extends Component
 {
-    
+    protected $listeners = [
+        'orderAdded' => '$refresh',
+        'foodAdded' => '$refresh',
+    ];
+
     public function boot() {
         $this->foods = Food::orderBy('delivery_at', 'asc')->get();
     }
@@ -24,7 +28,7 @@ class FoodList extends Component
                 'delivery_at' => $delivery_at,
             ],
         ]);
-        $this->emitTo('shopping-cart', '$refresh');
+        $this->emit('foodAdded');
     }
 
     public function render()
