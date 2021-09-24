@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Food;
+use App\Models\Order;
 use Livewire\Component;
 use Darryldecode\Cart\Facades\CartFacade as Cart;
 
@@ -15,6 +16,8 @@ class FoodList extends Component
 
     public function boot() {
         $this->foods = Food::orderBy('delivery_at', 'asc')->get();
+        $this->order = Order::where('user_id', auth()->id())->first();
+        $this->last_order_date = config('lan.last_food_order_date');
     }
 
     public function add($id, $name, $delivery_at, $price) {
