@@ -94,6 +94,9 @@
                                     <x-jet-dropdown-link href="{{ route('attendance.index') }}">
                                         {{ __('Attendances') }}
                                     </x-jet-dropdown-link>
+                                    <x-jet-dropdown-link href="{{ route('order.index') }}">
+                                        {{ __('Order') }}
+                                    </x-jet-dropdown-link>
                                     <div class="block px-4 py-2 text-xs text-gray-400">
                                         {{ __('User Management') }}
                                     </div>
@@ -208,6 +211,9 @@
                     </div>
                     <x-jet-responsive-nav-link href="{{ route('attendance.index') }}">
                         {{ __('Attendances') }}
+                    </x-jet-responsive-nav-link>
+                    <x-jet-responsive-nav-link href="{{ route('order.index') }}">
+                        {{ __('Order') }}
                     </x-jet-responsive-nav-link>
                     <div class="block px-4 py-2 text-xs text-gray-400">
                         {{ __('User Management') }}
