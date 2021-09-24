@@ -10,7 +10,7 @@ class Order extends Model
     use HasFactory;
 
     /**
-     * Get the user associated with the attendance.
+     * Get the user associated with the class.
      */
     public function user()
     {
