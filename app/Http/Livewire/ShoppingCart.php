@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Order;
 use Livewire\Component;
+use App\Models\OrderItem;
 use Darryldecode\Cart\Facades\CartFacade as Cart;
 
 class ShoppingCart extends Component
@@ -15,6 +17,8 @@ class ShoppingCart extends Component
     public function boot() {
         $this->cart = Cart::getContent();
         $this->total = Cart::getTotal();
+        $this->order = Order::where('user_id', auth()->id())->first();
+        $this->phonenumber = config('lan.phone');
     }
 
     public function increment($itemId) {
@@ -46,6 +50,26 @@ class ShoppingCart extends Component
         Cart::clear();
         $this->hydrate();
     }
+
+    public function order() {
+
+        $cart = $this->cart;
+
+        $order = new Order();
+        $order->user_id = auth()->user()->id;
+        $order->amount = $this->total;
+        $order->save();
+
+        foreach ($cart as $item) {
+            $orderItem = new OrderItem();
+            $orderItem->order_id = $order->id;
+            $orderItem->food_id = $item->id;
+            $orderItem->quantity = $item->quantity;
+            $orderItem->amount = $item->price;
+            $orderItem->save();
+        }
+        $this->removeall();
+        $this->emit('orderAdded');
     }
 
     public function render()
