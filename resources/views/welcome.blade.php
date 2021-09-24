@@ -5,6 +5,12 @@
                 <x-jet-authentication-card-logo />
             </div>
 
+            @if ($alertFm = Session::get('error'))
+                <div class="relative px-4 py-3 leading-normal text-red-700 bg-red-100 rounded-lg">
+                    <p>{{ $alertFm }}</p>
+                </div>
+            @endif
+
             <div class="items-center justify-center w-full p-6 mt-6 overflow-hidden text-center bg-gray-800 shadow-md sm:max-w-2xl sm:rounded-lg">
                 <a href="{{ route('discord.login') }}" class="block w-full h-12 px-6 py-3 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg shadow-lg focus:shadow-outline hover:bg-indigo-800">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 71 55" class="inline-block w-5 h-5 mr-1">

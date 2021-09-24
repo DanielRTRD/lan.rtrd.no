@@ -21,7 +21,7 @@ use App\Http\Controllers\Auth\FacebookController;
 Route::middleware(['guest'])->group(function () {
     Route::get('/', function () {
         return view('welcome');
-    });
+    })->name('home');
 });
 
 Route::group(['prefix' => 'login'], function () {

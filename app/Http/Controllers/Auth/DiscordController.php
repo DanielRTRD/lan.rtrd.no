@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Actions\Fortify\CreateNewUser;
 use Laravel\Socialite\Facades\Socialite;
+use GuzzleHttp\Exception\ClientException;
+use Laravel\Socialite\Two\InvalidStateException;
 
 class DiscordController extends Controller
 {
@@ -27,23 +29,29 @@ class DiscordController extends Controller
      */
     public function handleProviderCallback()
     {
-        $discordUser = Socialite::driver('discord')->user();
-        $userProfile = [
-            'username' => $discordUser->name,
-            'email' => $discordUser->email,
-            'password' => env('DEFAULT_PASSWORD'),
-        ];
+        try {
+            $discordUser = Socialite::driver('discord')->user();
+            $userProfile = [
+                'username' => $discordUser->name,
+                'email' => $discordUser->email,
+                'password' => env('DEFAULT_PASSWORD'),
+            ];
 
-        $user = User::where('email', $discordUser->email)->first();
-        if($user) {
-            Auth::login($user);
-            return redirect()->route('dashboard');
+            $user = User::where('email', $discordUser->email)->first();
+            if ($user) {
+                Auth::login($user);
+                return redirect()->route('dashboard');
+            }
+
+            $creator = new CreateNewUser();
+            $createdUser = $creator->create($userProfile);
+
+            Auth::login($createdUser);
+        } catch (InvalidStateException $e) {
+            return redirect()->route('home')->withError('Something went wrong with Discord login. Please try again.');
+        } catch (ClientException $e) {
+            return redirect()->route('home')->withError('Something went wrong with Discord login. Please try again.');
         }
-
-        $creator = new CreateNewUser();
-        $createdUser = $creator->create($userProfile);
-
-        Auth::login($createdUser);
 
         return redirect()->route('dashboard');
     }
