@@ -11,6 +11,9 @@
                 <div class="w-full px-1 my-1 lg:my-4 lg:px-4 md:w-1/2 xl:w-1/3">
                     <div class="p-8 py-4 overflow-hidden text-gray-200 bg-gray-800 rounded shadow-lg md:shadow-xl sm:rounded-lg">
                         <p class="mb-2 text-2xl font-semibold">{{ $order->user->name }} <span class="text-xl text-gray-500">{{ $order->user->username }}</span></p>
+                        @foreach ($order->items as $item)
+                            {{ $item->food->name }} x {{ $item->quantity }} <br>
+                        @endforeach
                     </div>
                 </div>
             @endforeach
