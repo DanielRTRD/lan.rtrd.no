@@ -38,6 +38,10 @@ Route::group(['middleware' => ['auth:sanctum', 'verified', 'password.confirm']],
         return view('dashboard');
     })->name('dashboard');
 
+    Route::get('/food', function () {
+        return view('food.index');
+    })->name('food');
+
     Route::group(['middleware' => ['role:super-admin|admin']], function () {
         Route::resource('users', UserController::class);
         Route::resource('roles', RoleController::class);
