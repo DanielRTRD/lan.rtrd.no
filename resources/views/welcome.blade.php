@@ -5,9 +5,9 @@
                 <x-jet-authentication-card-logo />
             </div>
 
-            @if ($alertFm = Session::get('error'))
+            @if(Session::get('error'))
                 <div class="relative px-4 py-3 leading-normal text-red-700 bg-red-100 rounded-lg">
-                    <p>{{ $alertFm }}</p>
+                    <p>{{ Session::get('error') }}</p>
                 </div>
             @endif
 
