@@ -18,7 +18,7 @@
         </svg>{{ __('Kanseller deltakelse') }}
     </button>
     <x-jet-action-message class="pt-6 text-red-500" on="hasFoodOrder">
-        {{ __('Du kan ikke kansellere din deltakelse før du har kansellert orderen for mat.') }}
+        {{ __('Du har bestilt mat, kansellert denne orderen først.') }}
     </x-jet-action-message>
     <div x-show="open" x-transition.all.duration.200ms class="mt-2" x-cloak>
         @if (\Carbon\Carbon::now() > \Carbon\Carbon::parse(env('LAN_LAST_RESPONSE_DATE')))
