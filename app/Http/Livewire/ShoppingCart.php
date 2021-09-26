@@ -23,12 +23,15 @@ class ShoppingCart extends Component
     }
 
     public function increment($itemId) {
-        Cart::update(
-            $itemId,
-            [
-                'quantity' => +1,
-            ]
-        );
+        $currentQty = Cart::get($itemId)->quantity;
+        if ($currentQty < 10) {
+            Cart::update(
+                $itemId,
+                [
+                    'quantity' => +1,
+                ]
+            );
+        }
         $this->hydrate();
     }
 

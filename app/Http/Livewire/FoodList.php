@@ -23,16 +23,30 @@ class FoodList extends Component
     }
 
     public function add($id, $name, $delivery_at, $price) {
-        //dd($id, $name, $price);
-        Cart::add([
-            'id' => $id,
-            'name' => $name,
-            'price' => $price,
-            'quantity' => 1,
-            'attributes' => [
-                'delivery_at' => $delivery_at,
-            ],
-        ]);
+        $item = Cart::get($id);
+        if ($item) {
+            if ($item->quantity < 10) {
+                Cart::add([
+                    'id' => $id,
+                    'name' => $name,
+                    'price' => $price,
+                    'quantity' => 1,
+                    'attributes' => [
+                        'delivery_at' => $delivery_at,
+                    ],
+                ]);
+            }
+        } else {
+            Cart::add([
+                'id' => $id,
+                'name' => $name,
+                'price' => $price,
+                'quantity' => 1,
+                'attributes' => [
+                    'delivery_at' => $delivery_at,
+                ],
+            ]);
+        }
         $this->emit('foodAdded');
     }
 
