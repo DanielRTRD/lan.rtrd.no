@@ -1,7 +1,30 @@
 <div>
     @if ($this->order)
         <h1 class="mb-4 text-2xl text-green-200">{{ __('Din Ordre') }}</h1>
-        Ordre ID: {{ $this->order->id }}
+        <p>Ordre ID: <span class="text-green-400">{{ $this->order->id }}</span></p>
+        <p>Subtotal: <span class="text-green-400">{{ $this->order->amount }} kr</span></p>
+        <p>Bekreftet betalt: <span class="text-green-400">{{ $this->order->paid ? 'Ja' : 'Nei' }}</span></p>
+        <p>Bekreftet bestilt: <span class="text-green-400">{{ $this->order->ordered ? 'Ja' : 'Nei' }}</span></p>
+        <table class="table w-full mt-4" cellspacing="0">
+            <thead>
+                <tr class="p-4 font-bold uppercase border-b border-gray-500 whitespace-nowrap">
+                    <th class="w-4/6 text-left">Navn</th>
+                    <th class="w-1/6 text-center">Levering</th>
+                    <th class="w-1/6 text-center">Stk</th>
+                    <th class="w-1/6 text-right">Pris Stk</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($this->order->items as $item)
+                    <tr class="border-b border-gray-600">
+                        <td class="w-4/6 py-4 text-left">{{ $item->food->name }}</td>
+                        <td class="w-1/6 py-4 text-center">{{ \Carbon\Carbon::parse($item->food->delivery_at)->toFormattedDateString() }}</td>
+                        <td class="w-1/6 py-4 text-center">{{ $item->quantity }}</td>
+                        <td class="w-1/6 py-4 text-right">{{ $item->amount }} kr</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     @else
         <h1 class="mb-4 text-2xl text-green-200">Meny</h1>
         <div class="px-4 py-3 my-2 text-sm leading-normal text-blue-700 bg-blue-100 rounded" role="alert">
