@@ -30,7 +30,7 @@
         <table class="table w-full mt-4" cellspacing="0">
             <thead>
                 <tr class="p-4 font-bold uppercase border-b border-gray-500 whitespace-nowrap">
-                    <th class="w-4/6 text-left">Navn</th>
+                    <th class="w-3/6 text-left">Navn</th>
                     <th class="w-1/6 text-center">Levering</th>
                     <th class="w-1/6 text-center">Stk</th>
                     <th class="w-1/6 text-right">Pris Stk</th>
@@ -39,7 +39,7 @@
             <tbody>
                 @foreach($order->items as $item)
                     <tr class="border-b border-gray-600">
-                        <td class="w-4/6 py-4 text-left">{{ $item->food->name }}</td>
+                        <td class="w-3/6 py-4 text-left">{{ $item->food->name }}</td>
                         <td class="w-1/6 py-4 text-center">{{ \Carbon\Carbon::parse($item->food->delivery_at)->toFormattedDateString() }}</td>
                         <td class="w-1/6 py-4 text-center">{{ $item->quantity }}</td>
                         <td class="w-1/6 py-4 text-right">{{ $item->amount }} kr</td>

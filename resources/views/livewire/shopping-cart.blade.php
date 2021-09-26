@@ -23,19 +23,20 @@
         <table class="table w-full" cellspacing="0">
             <thead>
                 <tr class="p-4 font-bold uppercase border-b border-gray-500 whitespace-nowrap">
-                    <th class="w-4/6 text-left">Navn</th>
-                    <th class="w-1/6 text-left">Stk</th>
+                    <th class="w-3/6 text-left">Navn</th>
+                    <th class="w-1/6 text-center">Levering</th>
+                    <th class="w-1/6 text-center">Stk</th>
                     <th class="w-1/6 text-right">Pris Stk</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($cart as $item)
                     <tr class="border-b border-gray-600">
-                        <td class="w-4/6 py-4 text-left">{{ $item->name }} <span class="ml-2 text-xs text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
-                          </svg> {{ \Carbon\Carbon::parse($item->attributes->delivery_at)->toFormattedDateString() }}</span></td>
-                        <td class="w-1/6 py-4 text-left">
+                        <td class="w-3/6 py-4 text-left">{{ $item->name }}</td>
+                        <td class="w-1/6 py-4 text-sm text-center">
+                            {{ \Carbon\Carbon::parse($item->attributes->delivery_at)->toFormattedDateString() }}
+                        </td>
+                        <td class="w-1/6 py-4 text-center">
                             <button wire:click.defer="decrement({{ $item->id }})" class="text-gray-400 hover:text-gray-600">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
