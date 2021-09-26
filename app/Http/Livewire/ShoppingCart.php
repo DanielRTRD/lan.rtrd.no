@@ -19,7 +19,6 @@ class ShoppingCart extends Component
         $this->cart = Cart::getContent();
         $this->total = Cart::getTotal();
         $this->order = Order::where('user_id', auth()->id())->first();
-        $this->phonenumber = config('lan.phone');
     }
 
     public function increment($itemId) {

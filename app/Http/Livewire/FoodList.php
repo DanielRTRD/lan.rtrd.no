@@ -20,6 +20,7 @@ class FoodList extends Component
         $this->order = Order::where('user_id', auth()->id())->first();
         $this->last_order_date = config('lan.last_food_order_date');
         $this->canCancel = Carbon::parse($this->last_order_date)->isFuture();
+        $this->phonenumber = config('lan.phone');
     }
 
     public function add($id, $name, $delivery_at, $price) {
