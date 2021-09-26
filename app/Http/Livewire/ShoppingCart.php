@@ -47,7 +47,7 @@ class ShoppingCart extends Component
 
     public function remove($itemId) {
         Cart::remove($itemId);
-        $this->hydrate();
+        $this->emit('orderAdded');
     }
 
     public function removeAll() {
