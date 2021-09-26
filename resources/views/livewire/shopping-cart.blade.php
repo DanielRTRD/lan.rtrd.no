@@ -1,7 +1,83 @@
 <div>
     @if ($this->order)
         
+        <div class="relative h-full p-10 overflow-hidden wrap">
+            <div class="absolute h-full border border-gray-200 border-dashed border-2-2" style="left:9.1%"></div>
         
+            <div class="flex items-center justify-between w-full mb-8">
+                <div class="order-2 w-1/12"></div>
+                <div class="z-20">
+                    <div class="flex items-center w-10 h-10 bg-green-900 rounded-full">
+                        <h1 class="mx-auto font-semibold text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                            </svg>
+                        </h1>
+                    </div>
+                </div>
+                <div class="order-1 w-10/12 px-6 py-4 ml-4 bg-green-900 rounded-lg shadow-xl">
+                    <div class="flex flex-row">
+                        <h3 class="text-xl font-bold text-gray-200">{{ __('Ordre registrert') }}</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between w-full mb-8">
+                <div class="order-2 w-1/12"></div>
+                <div class="z-20">
+                    <div class="flex items-center w-10 h-10 {{ $this->order->paid === 1 ? 'bg-green-900' : 'bg-gray-900' }} rounded-full">
+                        <h1 class="mx-auto font-semibold text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </h1>
+                    </div>
+                </div>
+                <div class="order-1 w-10/12 px-6 py-4 ml-4 {{ $this->order->paid === 1 ? 'bg-green-900' : 'bg-gray-900' }} rounded-lg shadow-xl">
+                    <div class="flex flex-row">
+                        <h3 class="text-xl font-bold text-gray-200">{{ __('Betaling bekreftet') }}</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between w-full mb-8">
+                <div class="order-2 w-1/12"></div>
+                <div class="z-20">
+                    <div class="flex items-center w-10 h-10 {{ $this->order->ordered === 1 ? 'bg-green-900' : 'bg-gray-900' }} rounded-full">
+                        <h1 class="mx-auto font-semibold text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
+                            </svg>
+                        </h1>
+                    </div>
+                </div>
+                <div class="order-1 w-10/12 px-6 py-4 ml-4 {{ $this->order->ordered === 1 ? 'bg-green-900' : 'bg-gray-900' }} rounded-lg shadow-xl">
+                    <div class="flex flex-row">
+                        <h3 class="text-xl font-bold text-gray-200">{{ __('Ordre bestilt') }}</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between w-full">
+                <div class="order-2 w-1/12"></div>
+                <div class="z-20">
+                    <div class="flex items-center w-10 h-10 bg-gray-900 rounded-full">
+                        <h1 class="mx-auto font-semibold text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </h1>
+                    </div>
+                </div>
+                <div class="order-1 w-10/12 px-6 py-4 ml-4 bg-gray-900 rounded-lg shadow-xl">
+                    <div class="flex flex-row">
+                        <h3 class="text-xl font-bold text-gray-200">{{ __('Spis maten') }}</h3>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
         
     @else
         <h1 class="mb-4 text-2xl text-green-200">Handlekurv</h1>

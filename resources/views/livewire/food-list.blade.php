@@ -21,8 +21,6 @@
         @endif
         <p>Ordre ID: <span class="text-green-400">{{ $this->order->id }}</span></p>
         <p>Subtotal: <span class="text-green-400">{{ $this->order->amount }} kr</span></p>
-        <p>Bekreftet betalt: <span class="text-green-400">{{ $this->order->paid ? 'Ja' : 'Nei' }}</span></p>
-        <p>Bekreftet bestilt: <span class="text-green-400">{{ $this->order->ordered ? 'Ja' : 'Nei' }}</span></p>
         <table class="table w-full mt-4" cellspacing="0">
             <thead>
                 <tr class="p-4 font-bold uppercase border-b border-gray-500 whitespace-nowrap">
