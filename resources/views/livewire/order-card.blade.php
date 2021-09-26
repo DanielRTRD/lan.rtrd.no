@@ -11,16 +11,18 @@
                 {{ __('Merk som betalt') }}
             @endif
         </button>
-        <button class="px-2 py-1 text-blue-100 transition-colors duration-150 bg-blue-700 rounded-lg focus:shadow-outline hover:bg-blue-800" wire:click="ordered">
-            <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-            </svg>
-            @if ($order->ordered)
-                {{ __('Merk som ikke bestilt') }}
-            @else
-                {{ __('Merk som bestilt') }}
-            @endif
-        </button>
+        @if ($order->paid)
+            <button class="px-2 py-1 text-blue-100 transition-colors duration-150 bg-blue-700 rounded-lg focus:shadow-outline hover:bg-blue-800" wire:click="ordered">
+                <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                </svg>
+                @if ($order->ordered)
+                    {{ __('Merk som ikke bestilt') }}
+                @else
+                    {{ __('Merk som bestilt') }}
+                @endif
+            </button>
+        @endif
         <p class="mt-4">Ordre ID: <span class="text-green-400">{{ $order->id }}</span></p>
         <p>Subtotal: <span class="text-green-400">{{ $order->amount }} kr</span></p>
         <p>Bekreftet betalt: <span class="text-green-400">{{ $order->paid ? 'Ja' : 'Nei' }}</span></p>
