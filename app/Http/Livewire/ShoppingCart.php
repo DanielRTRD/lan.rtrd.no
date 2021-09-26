@@ -32,7 +32,7 @@ class ShoppingCart extends Component
                 ]
             );
         }
-        $this->hydrate();
+        $this->emit('foodAdded');
     }
 
     public function decrement($itemId) {
@@ -42,12 +42,12 @@ class ShoppingCart extends Component
                 'quantity' => -1,
             ]
         );
-        $this->hydrate();
+        $this->emit('foodAdded');
     }
 
     public function remove($itemId) {
         Cart::remove($itemId);
-        $this->emit('orderAdded');
+        $this->emit('foodAdded');
     }
 
     public function removeAll() {
