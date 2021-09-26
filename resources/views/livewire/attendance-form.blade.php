@@ -17,6 +17,9 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>{{ __('Kanseller deltakelse') }}
     </button>
+    <x-jet-action-message class="pt-6 text-red-500" on="hasFoodOrder">
+        {{ __('Du kan ikke kansellere din deltakelse før du har kansellert orderen for mat.') }}
+    </x-jet-action-message>
     <div x-show="open" x-transition.all.duration.200ms class="mt-2" x-cloak>
         @if (\Carbon\Carbon::now() > \Carbon\Carbon::parse(env('LAN_LAST_RESPONSE_DATE')))
             <div class="px-4 py-3 my-3 leading-normal text-blue-600 bg-blue-100 rounded-lg" role="alert">
