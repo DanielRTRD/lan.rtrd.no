@@ -1,6 +1,17 @@
 <div>
     @if ($this->order)
         <h1 class="mb-4 text-2xl text-green-200">{{ __('Din Ordre') }}</h1>
+        @if ($this->canCancel && !$this->order->paid && !$this->order->ordered)
+            <form action="{{ route('order.destroy', $this->order->id) }}" method="POST">
+                @method('DELETE')
+                @csrf
+                <button class="h-10 px-5 mb-2 text-red-100 transition-colors duration-150 bg-red-800 rounded-lg focus:shadow-outline hover:bg-red-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg> Kanseller Ordre
+                </button>
+            </form>
+        @endif
         <p>Ordre ID: <span class="text-green-400">{{ $this->order->id }}</span></p>
         <p>Subtotal: <span class="text-green-400">{{ $this->order->amount }} kr</span></p>
         <p>Bekreftet betalt: <span class="text-green-400">{{ $this->order->paid ? 'Ja' : 'Nei' }}</span></p>

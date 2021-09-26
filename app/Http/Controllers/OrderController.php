@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -79,7 +80,11 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
+    {   
+        $order = Order::find($id);
+        if (Carbon::parse(env('FOOD_LAST_ORDER_DATE'))->isFuture() && !$order->paid && !$order->ordered) {
+            $order->delete();
+        }
+        return redirect()->route('food')->withSuccess('Ordre slettet.');
     }
 }
