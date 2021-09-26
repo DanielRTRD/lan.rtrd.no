@@ -16,7 +16,11 @@ class OrderCard extends Component
     }
 
     public function paid() {
-        $this->order->paid = !$this->order->paid;
+        $newPaid = !$this->order->paid;
+        $this->order->paid = $newPaid;
+        if ($newPaid === false) {
+            $this->order->ordered = false;
+        }
         $this->order->save();
         $this->emit('$refresh');
     }
