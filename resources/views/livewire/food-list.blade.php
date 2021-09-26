@@ -18,7 +18,7 @@
                 @foreach($this->order->items as $item)
                     <tr class="border-b border-gray-600">
                         <td class="w-4/6 py-4 text-left">{{ $item->food->name }}</td>
-                        <td class="w-1/6 py-4 text-center">{{ \Carbon\Carbon::parse($item->food->delivery_at)->toFormattedDateString() }}</td>
+                        <td class="w-1/6 py-4 text-sm text-center">{{ \Carbon\Carbon::parse($item->food->delivery_at)->toFormattedDateString() }}</td>
                         <td class="w-1/6 py-4 text-center">{{ $item->quantity }}</td>
                         <td class="w-1/6 py-4 text-right">{{ $item->amount }} kr</td>
                     </tr>
