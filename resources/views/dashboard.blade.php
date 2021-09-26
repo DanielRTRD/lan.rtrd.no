@@ -30,7 +30,7 @@
                     </ul>
                     <div class="mt-6">
                         <p class="text-xs text-gray-500"><sup>&dagger;</sup> Send oss en PM for adresse</p>
-                        <p class="text-xs text-gray-500"><sup>&dagger;&dagger;</sup> Senger må bringes for disse rommene</p>
+                        <p class="text-xs text-gray-500"><sup>&dagger;&dagger;</sup> Senger må bringes for disse</p>
                     </div>
                 </div>
             </div>
