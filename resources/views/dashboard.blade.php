@@ -19,6 +19,7 @@
                     <p class="my-2">Vi har to katter, så om du er allergisk så er det nok lurt å ta med noen piller for det. Odin er glad i å spise myk plast (som feks plastposer) så prøv å ungå å ha med for mye av det, eventuelt gjem de i bag, sekk eller lignende! 😺</p>
                     <p class="my-2">Smittevern: Viktig at alle sammen passer på å vaske hendene og slikt for å minske smittefaren, selvom noen har fått vaksine(r)! 🧼</p>
                     <p class="my-2">Sengene blir prioritert til de som skal være her over lengre tid, håper det er forståelig. 😴</p>
+                    <p class="my-2">Det er absolutt ikke noe krav til å være der under hele arrangementet, man kan komme å gå som man vil. Det er heller ikke noe krav for å bestille mat heller, det er butikker og kiosker i nærheten om man ønsker å handle middager der. 😉</p>
                     <p class="mt-2">Soveplasser:</p>
                     <ul class="ml-2 list-disc list-inside">
                         <li>Kjellerstue: <span class="text-green-400">To dobbelsenger og en sammenleggbar gjesteseng</span></li>
