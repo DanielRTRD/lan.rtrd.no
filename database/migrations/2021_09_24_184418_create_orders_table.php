@@ -16,7 +16,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
-            $table->decimal('amount');
+            $table->double('amount');
             $table->boolean('paid')->default(false);
             $table->boolean('ordered')->default(false);
             $table->timestamps();
@@ -28,7 +28,7 @@ class CreateOrdersTable extends Migration
             $table->bigInteger('order_id')->unsigned();
             $table->bigInteger('food_id')->unsigned();
             $table->tinyInteger('quantity');
-            $table->decimal('amount');
+            $table->double('amount');
             $table->timestamps();
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
             $table->foreign('food_id')->references('id')->on('food')->onDelete('cascade');
