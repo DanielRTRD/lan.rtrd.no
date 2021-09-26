@@ -15,7 +15,6 @@
                     </div>
                     <div class="w-full px-1 my-1 md:w-full lg:my-4 lg:px-4 lg:w-1/2">
                         <div class="p-8 py-4 overflow-hidden text-gray-200 bg-gray-800 rounded shadow-lg md:shadow-xl sm:rounded-lg">
-                            <h1 class="mb-4 text-2xl text-green-200">Handlekurv</h1>
                             @livewire('shopping-cart')
                         </div>
                     </div>

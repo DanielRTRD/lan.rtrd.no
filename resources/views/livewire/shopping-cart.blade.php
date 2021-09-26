@@ -20,6 +20,7 @@
             </div>
         @endif
     @else
+        <h1 class="mb-4 text-2xl text-green-200">Handlekurv</h1>
         <table class="table w-full" cellspacing="0">
             <thead>
                 <tr class="p-4 font-bold uppercase border-b border-gray-500 whitespace-nowrap">
