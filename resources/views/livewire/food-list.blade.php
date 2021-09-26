@@ -26,11 +26,11 @@
             </tbody>
         </table>
     @else
-        <h1 class="mb-4 text-2xl text-green-200">Meny</h1>
+        <h1 class="mb-4 text-2xl text-green-200">Makroboks Meny</h1>
         <div class="px-4 py-3 my-2 text-sm leading-normal text-blue-700 bg-blue-100 rounded" role="alert">
             <p><svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>{{ __('Siste dagen for å legge inn bestilling på mat er :date! Vi bestiller opp ordre som er lagt inn og betalt dagen etter.', ['date' => \Carbon\Carbon::parse($this->last_order_date)->toFormattedDateString()]) }}</p>
+            </svg>{{ __('Siste dagen for å legge inn bestilling på mat er :date! Vi bestiller opp ordre som er lagt inn og bekreftet betalt på :seconddate.', ['date' => \Carbon\Carbon::parse($this->last_order_date)->toFormattedDateString(), 'seconddate' => \Carbon\Carbon::parse($this->last_order_date)->addDay(1)->toFormattedDateString()]) }}</p>
         </div>
         @foreach($this->foods as $food)
             <div class="w-full border-t border-gray-700">
