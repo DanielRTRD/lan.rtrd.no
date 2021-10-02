@@ -63,10 +63,18 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attendance associated with the user.
+     * Get the attendance associated with the class.
      */
     public function attendance()
     {
         return $this->hasOne(Attendance::class);
+    }
+
+    /**
+     * Get the attendance associated with the class.
+     */
+    public function order()
+    {
+        return $this->hasOne(Order::class);
     }
 }

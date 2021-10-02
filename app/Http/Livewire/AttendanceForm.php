@@ -193,6 +193,11 @@ class AttendanceForm extends Component
 
     public function delete() {
         $attendance = auth()->user()->attendance;
+        $foodOrder = auth()->user()->order;
+        if ($foodOrder) {
+            $this->emit('hasFoodOrder');
+            return;
+        }
         /*
         *
         * DISCORD WEBHOOK

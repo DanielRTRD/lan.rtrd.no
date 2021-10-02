@@ -54,6 +54,8 @@ class Update extends Command
         }
         $this->info('Seeding permissions...');
         Artisan::call('db:seed --class=PermissionSeeder --force');
+        $this->info('Seeding food...');
+        Artisan::call('db:seed --class=FoodSeeder --force');
         $this->info('Running storage:link command...');
         Artisan::call('storage:link');
         $this->info('Done.');
