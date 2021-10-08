@@ -58,6 +58,11 @@ class ShoppingCart extends Component
 
         $cart = $this->cart;
 
+        if(Cart::isEmpty()) {
+            $this->emit('cartEmpty');
+            return;
+        }
+
         $order = new Order();
         $order->user_id = auth()->user()->id;
         $order->amount = $this->total;

@@ -141,5 +141,8 @@
                 {{ __('Legg inn bestilling') }}
             </button>
         </div>
+        <x-jet-action-message class="pt-4 text-red-500" on="cartEmpty">
+            {{ __('Du kan ikke legge inn en tom ordre!') }}
+        </x-jet-action-message>
     @endif
 </div>
