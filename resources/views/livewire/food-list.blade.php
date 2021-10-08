@@ -1,6 +1,6 @@
 <div>
     @if ($this->order)
-        @if ($this->order->paid === 0 && $this->order->ordered === 0)
+        @if (!$this->order->paid && !$this->order->ordered)
             <div class="px-4 py-3 my-2 text-sm leading-normal text-blue-700 bg-blue-100 rounded" role="alert">
                 <p><svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -21,6 +21,8 @@
         @endif
         <p>Ordre ID: <span class="text-green-400">{{ $this->order->id }}</span></p>
         <p>Subtotal: <span class="text-green-400">{{ $this->order->amount }} kr</span></p>
+        <p>Betalt: <span class="text-green-400">{{ $this->order->paid ? 'Ja' : 'Nei' }}</span></p>
+        <p>Bestilt: <span class="text-green-400">{{ $this->order->ordered ? 'Ja' : 'Nei' }}</span></p>
         <table class="table w-full mt-4" cellspacing="0">
             <thead>
                 <tr class="p-4 font-bold uppercase border-b border-gray-500 whitespace-nowrap">
