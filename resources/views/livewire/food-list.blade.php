@@ -1,12 +1,10 @@
 <div>
     @if ($this->order)
-        @if (!$this->order->paid && !$this->order->ordered)
-            <div class="px-4 py-3 my-2 text-sm leading-normal text-blue-700 bg-blue-100 rounded" role="alert">
-                <p><svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>{!! __('Din ordre er registrert, men ikke betalt enda. Send penger via <strong>Vipps</strong> til <strong>:phone</strong>. Deretter vil vi bekrefte dette ved å oppdatere denne meldingen. Du kan kansellere helt fram til <strong>:date</strong> eller før vi bekrefter betalingen.', ['phone' => ($this->phonenumber ? $this->phonenumber : 'RELOAD PAGE'), 'date' => \Carbon\Carbon::parse(config('lan.last_food_order_date'))->toFormattedDateString()]) !!}</p>
-            </div>
-        @endif
+        <div class="px-4 py-3 my-2 text-sm leading-normal text-blue-700 bg-blue-100 rounded" role="alert">
+            <p><svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>{!! __('Din ordre er registrert, men ikke betalt enda. Send penger via <strong>Vipps</strong> til <strong>:phone</strong>. Deretter vil vi bekrefte dette ved å oppdatere denne meldingen. Du kan kansellere helt fram til <strong>:date</strong> eller før vi bekrefter betalingen.', ['phone' => ($this->phonenumber ? $this->phonenumber : 'RELOAD PAGE'), 'date' => \Carbon\Carbon::parse(config('lan.last_food_order_date'))->toFormattedDateString()]) !!}</p>
+        </div>
         <h1 class="mb-4 text-2xl text-green-200">{{ __('Din Ordre') }}</h1>
         @if ($this->canCancel && !$this->order->paid && !$this->order->ordered)
             <form action="{{ route('order.destroy', $this->order->id) }}" method="POST">
