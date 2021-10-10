@@ -1,5 +1,5 @@
 <div class="w-full px-1 my-1 lg:my-4 lg:px-4 md:w-1/2 print:w-full print:p-0">
-    <div class="p-8 py-4 overflow-hidden text-gray-200 bg-gray-800 rounded shadow-lg md:shadow-xl sm:rounded-lg print:shadow-none print:p-0 print:border-b print:pb-4 print:text-black">
+    <div class="p-8 py-4 overflow-hidden text-gray-200 bg-gray-800 rounded shadow-lg md:shadow-xl sm:rounded-lg print:shadow-none print:p-0 print:border-b print:my-4 print:py-4 print:text-black">
         <p class="mb-2 text-2xl font-semibold print:hidden">{{ $order->user->name }} <span class="text-xl text-gray-500">{{ $order->user->username }}</span></p>
         <button class="px-2 py-1 text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800 print:hidden" wire:click="paid">
             <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
