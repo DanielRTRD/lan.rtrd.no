@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Order;
-use App\Models\OrderItem;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -16,7 +15,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view("order.index", ["orders" => Order::all(), "items" => OrderItem::orderBy('food_id')->orderBy('quantity')->get()]);
+        return view("order.index", ["orders" => Order::all()]);
     }
 
     /**
