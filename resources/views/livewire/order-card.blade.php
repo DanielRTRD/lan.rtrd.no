@@ -37,7 +37,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($order->items->sortBy('delivery_at')->sortBy('quantity') as $item)
+                @foreach($order->items->sortBy('delivery_at') as $item)
                     <tr class="border-b border-gray-600">
                         <td class="w-3/6 py-4 text-left">{{ $item->food->name }}</td>
                         <td class="w-1/6 py-4 text-center">{{ \Carbon\Carbon::parse($item->food->delivery_at)->toFormattedDateString() }}</td>
